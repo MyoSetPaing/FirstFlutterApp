@@ -21,7 +21,7 @@ Widget tabWidget() {
 }
 
 //Activity Widget(){
-Widget ActivityWidget() {
+Widget MyWidget(String text, Color color) {
   return Expanded(
     flex: 2,
     child: Container(
@@ -29,65 +29,11 @@ Widget ActivityWidget() {
       alignment: Alignment.centerLeft,
       padding: EdgeInsets.only(left: 30.0),
       child: Text(
-        "ACTIVITY",
+        text,
         style:
             TextStyle(color: Colors.white, fontSize: 30.0, letterSpacing: 5.0),
       ),
-      color: Colors.blue,
-    ),
-  );
-}
-
-//Workout Widget
-Widget workoutWidget() {
-  return Expanded(
-    flex: 2,
-    child: Container(
-      margin: EdgeInsets.all(5.0),
-      padding: EdgeInsets.only(left: 30.0),
-      alignment: Alignment.centerLeft,
-      child: Text(
-        "WORKOUT",
-        style:
-            TextStyle(color: Colors.white, fontSize: 30.0, letterSpacing: 5.0),
-      ),
-      color: Colors.deepOrange,
-    ),
-  );
-}
-
-//Nutrition Widget
-Widget nutritionWidget() {
-  return Expanded(
-    flex: 2,
-    child: Container(
-      margin: EdgeInsets.all(5.0),
-      padding: EdgeInsets.only(left: 30.0),
-      alignment: Alignment.centerLeft,
-      child: Text(
-        "NUTRITION",
-        style:
-            TextStyle(color: Colors.white, fontSize: 30.0, letterSpacing: 5.0),
-      ),
-      color: Colors.green,
-    ),
-  );
-}
-
-// Sleep Widget
-Widget sleepWidget() {
-  return Expanded(
-    flex: 2,
-    child: Container(
-      margin: EdgeInsets.all(5.0),
-      padding: EdgeInsets.only(left: 30.0),
-      alignment: Alignment.centerLeft,
-      child: Text(
-        "SLEEP",
-        style:
-            TextStyle(color: Colors.white, fontSize: 30.0, letterSpacing: 5.0),
-      ),
-      color: Colors.purple,
+      color: color,
     ),
   );
 }
@@ -114,10 +60,10 @@ class MyHome extends StatelessWidget {
               )),
             ),
             tabWidget(),
-            ActivityWidget(),
-            workoutWidget(),
-            nutritionWidget(),
-            sleepWidget(),
+            MyWidget("ACTIVITY", Colors.blue),
+            MyWidget("WORKOUT", Colors.red),
+            MyWidget("NUTRITION", Colors.green),
+            MyWidget("SLEEP", Colors.purple),
           ]),
     );
   }
