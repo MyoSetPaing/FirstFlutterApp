@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'my_widget.dart';
+
 void main() {
   runApp(MaterialApp(
     home: MyHome(),
@@ -20,23 +22,7 @@ Widget tabWidget() {
   );
 }
 
-//Activity Widget(){
-Widget MyWidget(String text, Color color) {
-  return Expanded(
-    flex: 2,
-    child: Container(
-      margin: EdgeInsets.all(5.0),
-      alignment: Alignment.centerLeft,
-      padding: EdgeInsets.only(left: 30.0),
-      child: Text(
-        text,
-        style:
-            TextStyle(color: Colors.white, fontSize: 30.0, letterSpacing: 5.0),
-      ),
-      color: color,
-    ),
-  );
-}
+
 
 class MyHome extends StatelessWidget {
   @override
