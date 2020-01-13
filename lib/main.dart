@@ -1,56 +1,69 @@
 import 'package:flutter/material.dart';
 
-import 'my_widget.dart';
-
 void main() {
   runApp(MaterialApp(
-    home: MyHome(),
+    home: MyApp(),
   ));
 }
 
-//Tab Widget
-Widget tabWidget() {
-  return Expanded(
-    flex: 1,
-    child: Row(
-      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-      children: <Widget>[
-        Text("TODAY'S PLAN", style: TextStyle(fontWeight: FontWeight.bold)),
-        Text("DASHBOARD", style: TextStyle(fontWeight: FontWeight.bold))
-      ],
-    ),
-  );
+class MyApp extends StatefulWidget {
+  @override
+  _MyAppState createState() => _MyAppState();
 }
 
+class _MyAppState extends State<MyApp> {
+  int count = 0;
 
-
-class MyHome extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Sport"),
+        title: Text("Couter"),
       ),
-      body: Column(
+      body: Container(
+        padding: EdgeInsets.all(20.0),
+        child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: <Widget>[
-            Expanded(
-              flex: 1,
-              child: Center(
-                  child: Text(
-                "iFit Coach",
-                style: TextStyle(
-                    color: Colors.black,
-                    fontSize: 30.0,
-                    fontWeight: FontWeight.bold),
-              )),
+            Text(
+              count.toString(),
+              style: TextStyle(
+                fontSize: 40.0,
+                color: Colors.deepOrange,
+              ),
+              textAlign: TextAlign.center,
             ),
-            tabWidget(),
-            MyWidget("ACTIVITY", Colors.blue),
-            MyWidget("WORKOUT", Colors.red),
-            MyWidget("NUTRITION", Colors.green),
-            MyWidget("SLEEP", Colors.purple),
-          ]),
+            RaisedButton(
+              onPressed: () {
+                setState(() {
+                  count++;
+
+                });
+              },
+              child: Text("add"),
+            ),
+            OutlineButton(
+              onPressed: () {
+                setState(() {
+                  count--;
+
+                });
+              },
+              child: Text("sub"),
+            )
+          ],
+        ),
+      ),
+//      floatingActionButton: FloatingActionButton(
+//        onPressed: () {
+//          setState(() {
+//            count ++ ;
+//
+//          });
+//          print(count);
+//        },
+//        child: Icon(Icons.add),
+//      ),
     );
   }
 }
